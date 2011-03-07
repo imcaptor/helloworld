@@ -11,7 +11,7 @@ log = logging.getLogger(__name__)
 class HelloController(BaseController):
 
     def index(self):
-        c.name = '王红宝'
+        c.name = '王红宝'  #这个参数可以传递到模版
         # Return a rendered template
         return render('/hello.mako')
         # or, return a string         
