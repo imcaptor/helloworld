@@ -36,3 +36,12 @@ class HelloController(BaseController):
         meta.Session.commit()
         ##创建一条数据
         return "success"
+    
+    def onePerson(self):
+        c.person = meta.Session.query(Person).filter(Person.name == 'Mr Jones').first()                
+        return render('/onePerson.mako')
+    
+    def allPerson(self):
+        c.persons = meta.Session.query(Person)[0:2]
+        
+        return render('/allPerson.mako')
