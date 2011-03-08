@@ -16,7 +16,7 @@ log = logging.getLogger(__name__)
 class HelloController(BaseController):
 
     def index(self):
-        c.name = '王红宝'  #这个参数可以传递到模版
+        c.name = 'test'  #这个参数可以传递到模版
         c.person = meta.Session.query(Person).filter(Person.name == 'Mr Jones').first()                
         #result = conn.execute(s)        
         # Return a rendered template
@@ -31,7 +31,7 @@ class HelloController(BaseController):
         mr_jones = Person()
         mr_jones.name = 'Mr Jones'
         mr_jones.id = 1
-        mr_jones.email = 'imcaptor@gmail.com'
+        mr_jones.email = 'test@gmail.com'
         meta.Session.add(mr_jones)
         meta.Session.commit()
         ##创建一条数据
