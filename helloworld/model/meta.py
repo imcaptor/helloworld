@@ -1,6 +1,7 @@
 """SQLAlchemy Metadata and Session object"""
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import scoped_session, sessionmaker
+from sqlalchemy import *
 
 __all__ = ['Base', 'Session']
 
@@ -9,3 +10,6 @@ Session = scoped_session(sessionmaker())
 
 # The declarative Base
 Base = declarative_base()
+# define metadata.
+
+metadata = MetaData()
