@@ -24,6 +24,7 @@ helloworld/lib/app_globals.py
 helloworld/lib/base.py
 helloworld/lib/helpers.py
 helloworld/model/__init__.py
+helloworld/model/meta.py
 helloworld/public/bg.png
 helloworld/public/favicon.ico
 helloworld/public/index.html
