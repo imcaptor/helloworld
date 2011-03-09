@@ -19,3 +19,9 @@ class Person(_Base):
     id = sa.Column(sa.types.Integer, primary_key=True)
     name = sa.Column(sa.types.String(100))
     email = sa.Column(sa.types.String(100))
+    
+class Bill(_Base):
+    __tablename__ = "bill"
+    id = sa.Column(sa.types.String(16), primary_key=True)
+    addedOn = sa.Column(sa.types.DateTime)
+    count = sa.Column(sa.types.Integer)  

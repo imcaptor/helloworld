@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import logging
+import logging,uuid
 
 from pylons import request, response, session, tmpl_context as c, url
 from pylons.controllers.util import abort, redirect
@@ -8,8 +8,9 @@ from sqlalchemy.sql import select
 
 from helloworld.lib.base import BaseController, render
 
-from helloworld.model.__init__ import Person
+from helloworld.model.__init__ import Person,Bill
 from helloworld.model import meta
+from datetime import datetime
 
 log = logging.getLogger(__name__)
 
@@ -35,7 +36,7 @@ class HelloController(BaseController):
         meta.Session.add(mr_jones)
         meta.Session.commit()
         ##创建一条数据
-        return "success"
+        return 'success'
     
     def onePerson(self):
         c.person = meta.Session.query(Person).filter(Person.name == 'Mr Jones').first()                
@@ -45,3 +46,13 @@ class HelloController(BaseController):
         c.persons = meta.Session.query(Person)[0:2]
         
         return render('/allPerson.mako')
+    
+    def createBill(self):
+        bill = Bill()
+        bill.id = str(uuid.uuid1());        
+        print bill.id
+        bill.addedOn = datetime.now()
+        bill.count = 100
+        meta.Session.add(bill)
+        meta.Session.commit()        
+        return 'success'
